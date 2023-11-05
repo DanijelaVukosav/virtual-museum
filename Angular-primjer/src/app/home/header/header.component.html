@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">VPM</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li style=" padding-left: 20px !important;" class="nav-item active">
+                <a routerLink="/muzeji" class="nav-link" routerLinkActive="primary">Muzeji </a>
+            </li>
+            <li style=" padding-left: 20px !important;" class="nav-item">
+                <a routerLink="/posjete" class="nav-link" >Posjete </a>
+            </li>
+           
+        </ul>
+
+
+    </div>
+    <div style="float:right"><button *ngIf="isLogin()" class="btn btn-outline-success my-2 my-sm-0" (click)="logout()">Odjava</button>
+        <a *ngIf="!isLogin()" routerLink="/login" class="link right-link" routerLinkActive="primary">
+        <button *ngIf="!isLogin()" class="btn btn-outline-success my-2 my-sm-0">Prijava</button></a>
+    </div>
+</nav>

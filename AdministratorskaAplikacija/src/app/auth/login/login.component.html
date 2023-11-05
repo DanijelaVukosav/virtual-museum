@@ -1,0 +1,59 @@
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!------ Include the above in your HEAD tag --------
+<div class="wrapper fadeInDown">
+
+    <form [formGroup]="form" class="login-form">
+        <h1>Prijava na sajt</h1>
+        <mat-form-field>
+            <input matInput type="text" formControlName="username" required autocomplete="off"
+                placeholder="Korisnicko ime" />
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput type="password" formControlName="password" required autocomplete="off"
+                placeholder="Lozinka" />
+        </mat-form-field>
+        <button mat-button [disabled]="form.invalid" (click)="login(form)">Prijavi se</button>
+        <br>
+        <a class="btn" routerLink="/login/signin" style="color: black; display: flex; justify-content: center; font-size: 15px;">Registruj se</a>
+    </form>
+
+</div>-->
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
+
+            <!-- Icon -->
+            <div class="fadeIn first">
+                <h1>Prijava na sajt</h1>
+            </div>
+
+            <!-- Login Form -->
+            <form [formGroup]="form" class="login-form">
+
+
+                <input matInput type="text" class="fadeIn first" formControlName="username" required autocomplete="off"
+                    placeholder="Korisnicko ime" />
+
+
+                <input matInput type="password" class="fadeIn second" formControlName="password" required
+                    autocomplete="off" placeholder="Lozinka" />
+
+                <button mat-button class="fadeIn third" [disabled]="form.invalid" (click)="login(form)">Prijavi
+                    se</button>
+                <br>
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+                <a class="underlineHover" href="#">Forgot Password?</a>
+            </div>
+
+        </div>
+    </div>
+</body>

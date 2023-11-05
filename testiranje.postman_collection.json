@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "7dc52f7a-34ca-4233-ad7e-526b2565114e",
+		"name": "testiranje",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autorizaovano",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "NeautorizaovanPristupMuzejima",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "NeautorizovanPristupPosjetama",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "AutorizovanPristupPosjetama",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

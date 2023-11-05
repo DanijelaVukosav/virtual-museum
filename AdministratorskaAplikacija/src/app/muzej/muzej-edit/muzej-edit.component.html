@@ -1,0 +1,77 @@
+
+
+<body>
+
+<h1 mat-dialog-title>Novi događaj</h1>
+<form [formGroup]="form">
+    <div mat-dialog-content class="create-form">
+        <mat-form-field>
+            <input matInput placeholder="Naziv" required formControlName="naziv" autocomplete="off" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Adresa" required formControlName="adresa" autocomplete="off" />
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Drzava</mat-label>
+            <mat-select formControlName="drzava" required (selectionChange)="dohvatiRegije($event)">
+                <mat-option *ngFor="let d of drzave" [value]="d.name.common">
+                    {{d.name.common}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <form [formGroup]="formaRegija">
+            <mat-form-field>
+                <mat-label>Regija</mat-label>
+                <mat-select formControlName="regija" required (selectionChange)="dohvatiGradove($event)">
+                    <mat-option *ngFor="let reg of regije" [value]="reg">
+                        {{reg.region}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form>
+        <form [formGroup]="formaGradova">
+        <mat-form-field>
+            <mat-label>Grad</mat-label>
+            <mat-select formControlName="grad" required (selectionChange)="ZapamtiGrad($event)" >
+                <mat-option *ngFor="let gr of gradovi" [value]="gr.city">
+                    {{gr.city}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        </form>
+        <mat-form-field>
+            <input matInput placeholder="Broj telefona"  required formControlName="brojTelefona" autocomplete="off" />
+        </mat-form-field>
+
+       <!-- <div class="row">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Datum" formControlName="date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Vrijeme" required formControlName="time" autocomplete="off" />
+            </mat-form-field>
+        </div>
+-->
+        <mat-form-field>
+            <mat-label>Kategorija</mat-label>
+            <mat-select formControlName="idTipa" required>
+                <mat-option *ngFor="let category of categories" [value]="category.idTipa">
+                    {{category.tip}} 
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="close()">Odustani</button>
+        <button mat-button [disabled]="form.invalid" type="submit" (click)="save(form)">Sacuvaj</button>
+    </div>
+</form>
+
+
+
+</body>

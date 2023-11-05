@@ -1,0 +1,54 @@
+<body>
+    <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+        <mat-card class="box">
+            <mat-card-header>
+                <mat-card-title>Register</mat-card-title>
+            </mat-card-header>
+
+            <form [formGroup]="forma" class="example-form">
+
+                <mat-card-content>
+                    <mat-form-field class="example-full-width">
+                        <input matInput formControlName="ime" placeholder="Ime" required="required">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput formControlName="prezime" placeholder="Prezime" required="required">
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <input matInput formControlName="brojKartice" placeholder="Broj katice" required="required">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input matInput formControlName="datumIsticanja" placeholder="Datum isticanja" required="required">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Tip katice</mat-label>
+                        <mat-select formControlName="tipKartice">
+                            <mat-option>None</mat-option>
+                            <mat-option value="VISA">VISA</mat-option>
+                            <mat-option value="MASTERCARD">MASTERCARD</mat-option>
+                            <mat-option value="AMERICAN EXPRESS">AMERICAN EXPRESS</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                        <input type="password" matInput formControlName="pin" placeholder="Pin" required="required">
+                    </mat-form-field>
+
+                   
+
+
+                    
+
+
+                </mat-card-content>
+
+                <button mat-stroked-button [disabled]="forma.invalid" (click)="uplata(forma)" color="accent"
+                    class="btn-block">Register</button>
+
+            </form>
+
+        </mat-card>
+
+    </div>
+</body>

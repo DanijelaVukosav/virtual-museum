@@ -1,0 +1,22 @@
+table {
+    width: 80%;   
+    position: absolute;
+    top: 190px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgb(37, 36, 36) !important;color: white !important; border-color: rgb(241, 238, 238);
+}
+
+.right-button {
+    position: absolute;
+    left:calc( 100% - 25% );
+}
+td,th{
+    background-color: rgb(37, 36, 36) !important;color: white !important; border-color: rgb(241, 238, 238);
+    height: 30px !important;
+}
+ng-container
+{
+    height: 30px !important;
+}

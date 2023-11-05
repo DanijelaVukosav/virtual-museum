@@ -1,0 +1,44 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+   <h2>Virtuelne posjete za koje ste kupili karte:</h2>
+    <div>
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="muzej">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Muzej </th>
+                <td mat-cell *matCellDef="let element"> {{element.idMuzej}} </td>
+            </ng-container>
+            <ng-container matColumnDef="datum">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum </th>
+                <td mat-cell *matCellDef="let element"> {{element.datum | date: "dd.MM.yyyy"}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="vrijemePocetka">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Vrijeme</th>
+                <td mat-cell *matCellDef="let element"> {{element.vrijemePocetka }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="trajanje">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Trajanja(h) </th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.trajanje}}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="prezentuj">
+                <th mat-header-cell *matHeaderCellDef> </th>
+                <td mat-cell *matCellDef="let element">
+                    <button type="button" class="btn btn-dark" (click)="prezentacija(element)">Prezentacija</button>
+                    
+                </td>
+            </ng-container>
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+        </table>
+    </div>
+
+</body>

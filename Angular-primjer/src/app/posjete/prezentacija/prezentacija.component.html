@@ -1,0 +1,77 @@
+<div class="container" style="margin-top: 20px;">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4>Prezentacija</h4>
+            
+        </div><br>
+        <div class="panel-body">
+            <!--<strong>Select files from your computer</strong>
+            <div *ngIf="fileStatus.status==='progress'">
+                <div class="progress">
+                    <div [style.width.%]="fileStatus.percent" class="progress-bar progress-bar-animated bg-info"
+                        role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                        {{ fileStatus.requestType }} {{ fileStatus.percent }}
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+            <form enctype="multipart/form-data">
+                <fieldset>
+                    <div class="form-group">
+                        <div>
+                            <input type="file" (change)="onUploadFiles($event.target)" name="files" multiple
+                                class="form-control" accept=".jpg,.jpeg,.png,.mp4" />
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+
+            <br>-->
+
+            <div *ngIf="filenames?.length > 0" class="js-upload-finished">
+                <h3>Mozete preuzeti video prezentacije</h3>
+                <div *ngFor="let filename of filenames" class="list-group">
+                    <a (click)="onDownloadFile(filename)" class="list-group-item list-group-item-success"
+                        style="cursor: pointer;">
+                        {{ filename }}
+                        <a style="float: right;" class="alert-success float-right">Download</a>
+                    </a><br>
+                </div>
+            </div>
+            <div *ngIf="postojiLink"><a [href]="videoLink"> YouTube link video prezentacije</a>
+            <iframe width="560" height="315" [src]="videoLink" title="YouTube video player" frameborder="0" allowfullscreen
+                ></iframe>
+    </div>
+
+<img [src]="imageToShow1" alt="Place image title" *ngIf="!isImageLoading1; else noImageFound">
+<ng-template #noImageFound>
+</ng-template>
+<img [src]="imageToShow2" alt="Place image title" *ngIf="!isImageLoading2; else noImageFound">
+
+<img [src]="imageToShow3" alt="Place image title" *ngIf="!isImageLoading3; else noImageFound">
+
+<img [src]="imageToShow4" alt="Place image title" *ngIf="!isImageLoading4; else noImageFound">
+
+<img [src]="imageToShow5" alt="Place image title" *ngIf="!isImageLoading5; else noImageFound">
+
+<img [src]="imageToShow6" alt="Place image title" *ngIf="!isImageLoading6; else noImageFound">
+
+<img [src]="imageToShow7" alt="Place image title" *ngIf="!isImageLoading7; else noImageFound">
+
+<img [src]="imageToShow8" alt="Place image title" *ngIf="!isImageLoading8; else noImageFound">
+
+
+<img [src]="imageToShow9" alt="Place image title" *ngIf="!isImageLoading9; else noImageFound">
+
+<img [src]="imageToShow10" alt="Place image title" *ngIf="!isImageLoading10; else noImageFound">
+
+<video width="320" height="240" controls *ngIf="postojiVideo">
+    <source [src]="videoToShow" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+
+</div>
+</div>
+</div>

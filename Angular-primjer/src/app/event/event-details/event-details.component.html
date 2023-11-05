@@ -1,0 +1,79 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<div class="vstack gap-3">
+    <div class="bg-light border">
+    <div class="main-content">
+        <mat-card class="info-card">
+            <mat-card-header>
+                <mat-card-title>
+                    {{muzej.naziv}}
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <h4> Adresa: {{muzej.adresa}}</h4>
+                <h4> Grad: {{muzej.grad}}</h4>
+                <h4> Drzava: {{muzej.drzava}}</h4>
+                <h6> Broj telefona: {{muzej.brojTelefona}}</h6>
+            
+                <div class="posjeta" *ngFor="let posjeta of posjete">
+                    <p>Virtuelna posjeta :{{posjeta.datum}} {{posjeta.vrijemePocetka}}</p>
+                    <button (click)="kupiKartu(posjeta.idvirtuelnaposjeta)" class="btn btn-primary">Kupi kartu</button>
+                  //  <a class="btn" routerLink="/muzeji/karta/1">Kupi</a>
+                </div>
+            </mat-card-content>
+        </mat-card>
+        
+    </div>
+    </div>
+    <div class="bg-light border">
+
+        <agm-map [longitude]="longitude" [latitude]="latitude">
+            <agm-marker [longitude]="longitude" [latitude]="latitude"></agm-marker>
+        </agm-map>
+
+    </div>
+    <div class="bg-light border">
+
+    <div class="card-deck" >
+        <div class="card">
+            <img src="http://openweathermap.org/img/w/{{weatherPom1.weather[0].icon}}.png" style="width: 100px;height: 100px;" alt="slika">
+            <div class="card-body">
+                <h5 class="card-title">{{weatherPom1.name}}</h5>
+                <p >
+                Max temp: {{(weatherPom1.main.temp_max -32)*(5/9)| number:'1.0'}}F <br>
+                Min temp: {{(weatherPom1.main.temp_min - 32)*(5/9)| number:'1.0' }}F <br>
+                Vjerovatnoca kise: {{weatherPom1.main.humidity}} % <br>
+                Zalazak sunca: {{weatherPom1.sys.sunrise * 1000 | date: 'H:mm'}} <br>
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="http://openweathermap.org/img/w/{{weatherPom2.weather[0].icon}}.png" style="width: 100px;height: 100px;" alt="slika">
+            <div class="card-body">
+                <h5 class="card-title">{{weatherPom2.name}}</h5>
+                <p>
+                    Max temp: {{(weatherPom2.main.temp_max -32)*(5/9)| number:'1.0'}}F <br>
+                    Min temp: {{(weatherPom2.main.temp_min - 32)*(5/9)| number:'1.0' }}F <br>
+                    Vjerovatnoca kise: {{weatherPom2.main.humidity}} % <br>
+                    Zalazak sunca: {{weatherPom2.sys.sunrise * 1000 | date: 'H:mm'}} <br>
+                </p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="http://openweathermap.org/img/w/{{weatherPom3.weather[0].icon}}.png" style="width: 100px;height: 100px;" alt="slika">
+            <div class="card-body">
+                <h5 class="card-title">{{weatherPom3.name}}</h5>
+                <p>
+                    Max temp: {{(weatherPom3.main.temp_max -32)*(5/9)| number:'1.0'}} <br>
+                    Min temp: {{(weatherPom3.main.temp_min - 32)*(5/9)| number:'1.0' }} <br>
+                    Vjerovatnoca kise: {{weatherPom3.main.humidity}} % <br>
+                    Zalazak sunca: {{weatherPom3.sys.sunrise * 1000 | date: 'H:mm'}} <br>
+                </p>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

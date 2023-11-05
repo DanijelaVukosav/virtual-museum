@@ -1,0 +1,61 @@
+<body><div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+        <mat-card-header>
+            <mat-card-title>Register</mat-card-title>
+        </mat-card-header>
+
+        <form [formGroup]="forma" class="example-form">
+
+            <mat-card-content>
+                <mat-form-field class="example-full-width">
+                    <input matInput formControlName="ime" placeholder="Ime" required="required">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput formControlName="prezime" placeholder="Prezime" required="required">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput formControlName="email" placeholder="Email" required="required">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput formControlName="username" (change)="provjeraUsername()" placeholder="Korisnicko ime"  required="required" minlength="12" pattern="[^\#@\/]{12,}$" >
+                </mat-form-field>
+                <div *ngIf="forma.controls['username'].invalid && (forma.controls['username'].dirty || forma.controls['username'].touched)"
+                    class="alert">
+                    <div *ngIf="forma.controls['username'].errors">
+                        Minimalna duzina 12 karaktera.Nevalidniznakovi: /,@,#
+                    </div>
+                </div>
+
+                <mat-form-field class="example-full-width">
+                    <input formControlName="password" matInput placeholder="Password"  required="required" minlength="15" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d@$!%*?&]{15,}$">
+                </mat-form-field>
+                <div *ngIf="forma.controls['password'].invalid && (forma.controls['password'].dirty || forma.controls['password'].touched)"
+                    class="alert">
+                    <div *ngIf="forma.controls['password'].errors">
+                        Lozinka mora sadrzati:malo i veliko slovo,cifru.Minimalna duzina 15 karaktera.
+                    </div>
+                </div>
+
+                <mat-form-field class="example-full-width">
+                    <input formControlName="drugaLozinka" matInput placeholder="Password" required="required">
+                </mat-form-field>
+                <div *ngIf="poklapanjeLozinki()"
+                    class="alert">
+                        Lozinke se razlikuju.
+                    
+                </div>
+
+
+            </mat-card-content>
+
+            <button mat-stroked-button [disabled]="forma.invalid" (click)="register(forma)" color="accent" class="btn-block">Register</button>
+
+        </form>
+        
+    </mat-card>
+   
+</div>
+</body>
