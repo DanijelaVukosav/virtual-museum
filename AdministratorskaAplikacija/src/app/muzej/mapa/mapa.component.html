@@ -1,0 +1,7 @@
+
+<agm-map [longitude]="longitude" [latitude]="latitude" (mapClick)="nadjiLokaciju($event)">
+    <agm-marker [longitude]="longitude" [latitude]="latitude"></agm-marker>
+</agm-map>
+<div style="display: flex; justify-content: center;">
+<button style="background-color: black; color: white; width: 20%;height: 10%;" (click)="sacuvajLokaciju()">Sacuvaj lokaciju</button>
+</div>

@@ -1,0 +1,46 @@
+.right-link {
+    right: 4px;
+    position: absolute;
+    top: 4px;
+    color: white;
+}
+
+.link {
+    text-decoration: none;
+    font-size: 12px;
+    padding: 8px;
+}
+
+.main-title {
+    top: 10px;
+    left:300px;
+    position: absolute;
+    color: white;
+}
+
+.main-content {
+    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 16px;
+}
+
+.info-card {
+    min-width: 30%;
+    background-color: rgb(124, 132, 143);
+    color: white;
+    text-align: center;
+    min-height: 300px;
+}
+
+.posjeta {
+    background-color: rgb(151, 158, 167);
+    padding: 8px;
+    margin: 4px;
+    
+}
+agm-map {
+  height: 300px;
+}

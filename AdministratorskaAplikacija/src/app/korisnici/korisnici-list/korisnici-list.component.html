@@ -1,0 +1,69 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <h2>Lista registrovanih korisnika</h2>
+    <div>
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+            <ng-container matColumnDef="username">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Korisnicko ime </th>
+                <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="ime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Ime</th>
+                <td mat-cell *matCellDef="let element"> {{element.ime}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="prezime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Prezime </th>
+                <td mat-cell *matCellDef="let element">
+                    {{element.prezime}}
+                </td>
+            </ng-container>
+            
+                        
+
+            <ng-container matColumnDef="registracija">
+                <th mat-header-cell *matHeaderCellDef> Odobri registraciju </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-button *ngIf="element.odobrenNalog=='F'" style="background-color: white;color: black;" (click)="odobriRegistraciju(element)">
+                        Odobri
+                    </button>
+                    <button mat-button *ngIf="omogucenNalog(element)" style="background-color: white;color: black;"
+                        (click)="odobriRegistraciju(element)">
+                        Onemoguci
+                    </button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="blokiraj">
+                <th mat-header-cell *matHeaderCellDef> Blokiraj </th>
+                <td mat-cell *matCellDef="let element">
+                    <button *ngIf="element.blokiranNalog=='F'" mat-flat-button style="background-color: white;color: black;" (click)="blokirajKorisnika(element)">
+                        Blokiraj
+                    </button>
+                    <button *ngIf="element.blokiranNalog=='T'" mat-flat-button style="background-color: white;color: black;" (click)="blokirajKorisnika(element)">
+                        Odblokiraj
+                    </button>
+                </td>
+            </ng-container>
+            
+            
+            
+            <ng-container matColumnDef="promijeniSifru">
+                <th mat-header-cell *matHeaderCellDef> Promijeni sifru </th>
+                <td mat-cell *matCellDef="let element">
+                    <button mat-icon-button (click)="promijeniSifru(element)">
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+        </table>
+    </div>
+    
+</body>
